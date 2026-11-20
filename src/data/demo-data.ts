@@ -80,9 +80,11 @@ const tasks: Task[] = [
 ];
 
 const calendarEvents: CalendarEvent[] = [
-  { id: 'event-1', title: 'Встреча с командой «Маяк»', description: 'Обсуждение предложения и следующих шагов.', startAt: hourOffsetToday(2), endAt: hourOffsetToday(3), relatedContactId: 'contact-2', relatedDealId: 'deal-2' },
-  { id: 'event-2', title: 'Демо для «Городских решений»', description: 'Показ возможностей CRM.', startAt: dateOffset(1, 11), endAt: dateOffset(1, 12), relatedContactId: 'contact-5', relatedDealId: 'deal-5' },
-  { id: 'event-3', title: 'Планирование команды', description: 'Еженедельная встреча отдела.', startAt: dateOffset(3, 10), endAt: dateOffset(3, 11), relatedContactId: null, relatedDealId: null },
+  { id: 'event-1', title: 'Встреча с командой «Маяк»', description: 'Обсуждение предложения и следующих шагов.', startAt: hourOffsetToday(2), endAt: hourOffsetToday(3), relatedContactId: 'contact-2', relatedDealId: 'deal-2', type: 'meeting', assignedEmployeeId: 'employee-3', location: 'Онлайн', createdAt: dateOffset(-2), updatedAt: today() },
+  { id: 'event-2', title: 'Демо для «Городских решений»', description: 'Показ возможностей CRM.', startAt: dateOffset(1, 11), endAt: dateOffset(1, 12), relatedContactId: 'contact-5', relatedDealId: 'deal-5', type: 'consultation', assignedEmployeeId: 'employee-3', location: 'Переговорная 2', createdAt: dateOffset(-1), updatedAt: today() },
+  { id: 'event-3', title: 'Планирование команды', description: 'Еженедельная встреча отдела.', startAt: dateOffset(3, 10), endAt: dateOffset(3, 11), relatedContactId: null, relatedDealId: null, type: 'meeting', assignedEmployeeId: 'employee-1', location: 'Офис', createdAt: today(), updatedAt: today() },
+  { id: 'event-4', title: 'Звонок по смете', description: 'Согласовать детали расчёта.', startAt: dateOffset(2, 15), endAt: dateOffset(2, 16), relatedContactId: 'contact-3', relatedDealId: 'deal-3', type: 'call', assignedEmployeeId: 'employee-2', location: '', createdAt: today(), updatedAt: today() },
+  { id: 'event-5', title: 'Напоминание: отправить материалы', description: 'Подготовить и отправить презентацию.', startAt: dateOffset(4, 9), endAt: dateOffset(4, 9.5), relatedContactId: 'contact-4', relatedDealId: 'deal-4', type: 'reminder', assignedEmployeeId: 'employee-1', location: '', createdAt: today(), updatedAt: today() },
 ];
 
 const activities: Activity[] = [

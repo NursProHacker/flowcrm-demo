@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AlertCircle, CheckCircle2, ContactRound, Plus, RefreshCw, UsersRound } from 'lucide-react';
-import { ContactDetailsPanel, ConfirmContactDeleteDialog } from '../components/contacts/ContactDetailsPanel';
+import { ContactDetailsPanel } from '../components/contacts/ContactDetailsPanel';
+import { ConfirmDialog } from '../components/ui/ConfirmDialog';
 import { ContactFilters, type ContactFilterValues } from '../components/contacts/ContactFilters';
 import { ContactFormModal, type ContactFormValues } from '../components/contacts/ContactFormModal';
 import { ContactsTable } from '../components/contacts/ContactsTable';
@@ -181,7 +182,7 @@ export function ContactsPage() {
 
       {formOpen && <ContactFormModal contact={editingContact} employees={employees} saving={saving} onClose={() => { if (!saving) setFormOpen(false); }} onSave={handleSave} />}
       {detailsContact && <ContactDetailsPanel contact={detailsContact} onClose={() => setDetailsContact(null)} onEdit={() => openEditForm(detailsContact)} onDelete={() => setDeleteTarget(detailsContact)} />}
-      {deleteTarget && <ConfirmContactDeleteDialog contact={deleteTarget} deleting={deleting} onCancel={() => { if (!deleting) setDeleteTarget(null); }} onConfirm={handleDelete} />}
+      {deleteTarget && <ConfirmDialog name={deleteTarget.fullName} busy={deleting} onCancel={() => { if (!deleting) setDeleteTarget(null); }} onConfirm={handleDelete} />}
       {feedback && (
         <div className={`contacts-toast contacts-toast--${feedback.kind}`} role={feedback.kind === 'error' ? 'alert' : 'status'}>
           {feedback.kind === 'success' ? <CheckCircle2 size={18} aria-hidden="true" /> : <AlertCircle size={18} aria-hidden="true" />}

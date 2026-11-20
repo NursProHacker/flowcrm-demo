@@ -69,31 +69,3 @@ export function ContactDetailsPanel({ contact, onClose, onEdit, onDelete }: Cont
   );
 }
 
-interface ConfirmContactDeleteDialogProps {
-  contact: Contact;
-  deleting: boolean;
-  onCancel: () => void;
-  onConfirm: () => Promise<void>;
-}
-
-export function ConfirmContactDeleteDialog({ contact, deleting, onCancel, onConfirm }: ConfirmContactDeleteDialogProps) {
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => { if (event.key === 'Escape' && !deleting) onCancel(); };
-    window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
-  }, [deleting, onCancel]);
-
-  return (
-    <div className="contacts-overlay contacts-overlay--confirm" onMouseDown={(event) => { if (event.target === event.currentTarget && !deleting) onCancel(); }}>
-      <section className="contacts-confirm" role="alertdialog" aria-modal="true" aria-labelledby="contact-delete-title" aria-describedby="contact-delete-description">
-        <span className="contacts-confirm__icon"><Trash2 size={20} /></span>
-        <h2 id="contact-delete-title">Удалить контакт?</h2>
-        <p id="contact-delete-description">Контакт «{contact.fullName}» будет удалён из базы. Это действие нельзя отменить.</p>
-        <div className="contacts-confirm__actions">
-          <button className="secondary-button" type="button" onClick={onCancel} disabled={deleting}>Оставить</button>
-          <button className="danger-button" type="button" onClick={() => void onConfirm()} disabled={deleting}>{deleting ? 'Удаляем…' : 'Удалить контакт'}</button>
-        </div>
-      </section>
-    </div>
-  );
-}

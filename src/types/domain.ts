@@ -68,6 +68,7 @@ export interface Task {
   relatedDealId: string | null;
   relatedContactId: string | null;
   createdAt: string;
+  updatedAt?: string;
 }
 
 export interface CalendarEvent {
@@ -78,6 +79,11 @@ export interface CalendarEvent {
   endAt: string;
   relatedContactId: string | null;
   relatedDealId: string | null;
+  type?: 'meeting' | 'call' | 'consultation' | 'reminder' | 'other';
+  assignedEmployeeId?: string;
+  location?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Employee {

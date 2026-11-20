@@ -31,11 +31,15 @@ export interface DashboardSnapshot {
   activeDealsCount: number;
   revenue: number;
   tasksDueTodayCount: number;
+  tasksCount: number;
+  completedTasksCount: number;
+  overdueTasksCount: number;
   sales: SalesPoint[];
   dealStatuses: DealStatusSummary[];
   recentDeals: RecentDealItem[];
   upcomingTasks: Task[];
   recentActivities: Activity[];
+  upcomingEvents: CalendarEvent[];
 }
 
 const stageDetails: ReadonlyArray<{ stage: DealStage; label: string; color: string }> = [
@@ -107,6 +111,9 @@ export async function getDashboardSnapshot(
     activeDealsCount: deals.filter((deal) => deal.stageId !== 'won' && deal.stageId !== 'lost').length,
     revenue: deals.filter((deal) => deal.stageId === 'won').reduce((sum, deal) => sum + deal.amount, 0),
     tasksDueTodayCount,
+    tasksCount: tasks.length,
+    completedTasksCount: tasks.filter((task) => task.status === 'completed').length,
+    overdueTasksCount: tasks.filter((task) => task.status !== 'completed' && task.status !== 'cancelled' && Date.parse(task.dueDate) < currentDate.getTime()).length,
     sales,
     dealStatuses: stageDetails.map(({ stage, label, color }) => ({
       stage,
@@ -132,5 +139,9 @@ export async function getDashboardSnapshot(
     recentActivities: [...activities]
       .sort((first, second) => Date.parse(second.createdAt) - Date.parse(first.createdAt))
       .slice(0, 5),
+    upcomingEvents: [...calendarEvents]
+      .filter((event) => Date.parse(event.endAt) >= currentDate.getTime())
+      .sort((first, second) => Date.parse(first.startAt) - Date.parse(second.startAt))
+      .slice(0, 4),
   };
 }

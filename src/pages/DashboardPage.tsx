@@ -5,6 +5,7 @@ import { RecentActivity } from '../components/dashboard/RecentActivity';
 import { RecentDeals } from '../components/dashboard/RecentDeals';
 import { SalesChart } from '../components/dashboard/SalesChart';
 import { UpcomingTasks } from '../components/dashboard/UpcomingTasks';
+import { UpcomingEvents } from '../components/dashboard/UpcomingEvents';
 import { StatCard } from '../components/ui/StatCard';
 import type { DashboardState } from '../hooks/useDashboardSnapshot';
 import { formatCurrency } from '../utils/currency';
@@ -43,6 +44,13 @@ export function DashboardPage() {
         <StatCard label="Задачи на сегодня" value={amountFormat.format(snapshot.tasksDueTodayCount)} note={todayTasksLabel} icon={CalendarDays} iconTone="amber" />
       </section>
 
+      <section className="task-stats-inline" aria-label="Показатели задач">
+        <span>Задач: <strong>{snapshot.tasksCount}</strong></span>
+        <span>На сегодня: <strong>{snapshot.tasksDueTodayCount}</strong></span>
+        <span>Выполнено: <strong>{snapshot.completedTasksCount}</strong></span>
+        <span>Просрочено: <strong>{snapshot.overdueTasksCount}</strong></span>
+      </section>
+
       <section className="dashboard-charts" aria-label="Аналитика продаж">
         <SalesChart data={snapshot.sales} />
         <DealsStatusChart data={snapshot.dealStatuses} />
@@ -52,6 +60,7 @@ export function DashboardPage() {
         <RecentDeals deals={snapshot.recentDeals} />
         <div className="dashboard-side-column">
           <UpcomingTasks tasks={snapshot.upcomingTasks} employees={snapshot.employees} />
+          <UpcomingEvents events={snapshot.upcomingEvents} employees={snapshot.employees} />
           <RecentActivity activities={snapshot.recentActivities} employees={snapshot.employees} />
         </div>
       </section>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowDownRight, ArrowUpRight, CalendarDays, CircleAlert, Clock3, Mail, Pencil, Plus, Trash2, UserRound, X } from 'lucide-react';
 import type { Activity, Contact, Deal, DealStage, Employee } from '../../types/domain';
 import { dealPriorityLabels, dealStageOptions, formatDealAmount, formatExpectedCloseDate } from '../../utils/deal-format';
+import { ConfirmDialog } from '../ui/ConfirmDialog';
 
 interface DealDetailsPanelProps {
   deal: Deal;
@@ -124,19 +125,7 @@ export function DealDetailsPanel({ deal, contact, employee, employees, history, 
           <button className="primary-button" type="button" onClick={onEdit}><Pencil size={15} />Редактировать</button>
         </div>
 
-        {confirmDelete && (
-          <div className="contacts-overlay contacts-overlay--confirm" onMouseDown={(event) => { if (event.target === event.currentTarget && !deleting) setConfirmDelete(false); }}>
-            <section className="contacts-confirm" role="alertdialog" aria-modal="true" aria-labelledby="deal-delete-title" aria-describedby="deal-delete-description">
-              <span className="contacts-confirm__icon"><Trash2 size={20} /></span>
-              <h2 id="deal-delete-title">Удалить сделку?</h2>
-              <p id="deal-delete-description">Сделка «{deal.title}» будет удалена из списка. Это действие нельзя отменить.</p>
-              <div className="contacts-confirm__actions">
-                <button className="secondary-button" type="button" onClick={() => setConfirmDelete(false)} disabled={deleting}>Оставить</button>
-                <button className="danger-button" type="button" onClick={() => void onDelete()} disabled={deleting}>{deleting ? 'Удаляем…' : 'Удалить сделку'}</button>
-              </div>
-            </section>
-          </div>
-        )}
+        {confirmDelete && <ConfirmDialog name={deal.title} busy={deleting} onCancel={() => setConfirmDelete(false)} onConfirm={onDelete} />}
       </section>
     </div>
   );
