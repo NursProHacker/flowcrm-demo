@@ -1,0 +1,2464 @@
+{
+ "start": "2026-11-20T11:10:03.414Z",
+ "round": 1,
+ "idle": 0,
+ "errors": 1,
+ "status": "fail",
+ "history": [
+  {
+   "at": "2026-11-20T11:11:26.641Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 70,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": null,
+  "url": "http://localhost:5173/",
+  "root": null,
+  "kind": "software",
+  "category": "CRM для малого бизнеса",
+  "primary": "Найти контакт",
+  "rounds": 3,
+  "start": "2026-11-20T11:10:03.414Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "ffa22af42cd2028e:da39a3ee",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "ffa22af42cd2028e",
+ "page": "http://localhost:5173/",
+ "found": {
+  "fails": [
+   {
+    "check": "hero-fill",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов 8 В базе клиентов Активн\"",
+    "msg": "the next section shows on the first screen: it starts at 203px on a 900px screen (the hero ends at 181px)",
+    "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-fill"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов 8 В базе клиентов Активн\""
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "div.app-main > main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(1) \"Всего контактов 8 В базе клиентов\"",
+    "msg": "its first line sits 0px under the top edge of section.stats-grid, where the ground changes",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "flush"
+    ],
+    "wheres": [
+     "div.app-main > main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(1) \"Всего контактов 8 В базе клиентов\""
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel \"Продажи Динамика выручки 540 000 ₽ За 7 \"",
+    "msg": "its first line sits 0px under the top edge of section.dashboard-charts, where the ground changes",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "flush"
+    ],
+    "wheres": [
+     "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel \"Продажи Динамика выручки 540 000 ₽ За 7 \""
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel \"В работе Последние сделки Все сделки Сде\"",
+    "msg": "its first line sits 0px under the top edge of section.dashboard-bottom, where the ground changes",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "flush"
+    ],
+    "wheres": [
+     "div.app-main > main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel \"В работе Последние сделки Все сделки Сде\""
+    ]
+   },
+   {
+    "check": "text-only",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\"",
+    "msg": "the closing section is only text: no picture, icon, mock or effect in it",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-only"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\""
+    ]
+   },
+   {
+    "check": "cta",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro",
+    "msg": "the hero has no button (the nav's does not count)",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "cta"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro"
+    ]
+   },
+   {
+    "check": "cta",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\"",
+    "msg": "the last section before the footer ends with no button",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "cta"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\""
+    ]
+   },
+   {
+    "check": "copy-headline",
+    "where": "div.app-main > header.topbar > div.topbar__title-wrap > h1.topbar__title \"Обзор\"",
+    "msg": "\"Обзор\" does not name what is sold (crm, from flags)",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-headline"
+    ],
+    "wheres": [
+     "div.app-main > header.topbar > div.topbar__title-wrap > h1.topbar__title \"Обзор\""
+    ]
+   },
+   {
+    "check": "heading-scale",
+    "where": "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > h2 \"Добрый день, Мария\"",
+    "msg": "h2 headings in 2 sizes, 14px (\"Динамика выручки\") to 24px (x1.71)",
+    "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "heading-scale"
+    ],
+    "wheres": [
+     "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > h2 \"Добрый день, Мария\""
+    ]
+   },
+   {
+    "check": "contrast",
+    "where": "div.status-chart-wrap > div.status-chart > div.status-chart-center > span \"сделок\"",
+    "msg": "body text over a effect reads at 3.1:1 at its worst tenth (needs 4.5:1)",
+    "fix": "put the text on a calm part of the picture, or on a solid panel",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "contrast"
+    ],
+    "wheres": [
+     "div.status-chart-wrap > div.status-chart > div.status-chart-center > span \"сделок\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "div#root > div.app-shell > aside.sidebar > div.sidebar__label \"РАБОЧЕЕ ПРОСТРАНСТВО\"",
+    "msg": "a caption, label or muted line in #9aa3b2 on #ffffff reads 2.54:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "div#root > div.app-shell > aside.sidebar > div.sidebar__label \"РАБОЧЕЕ ПРОСТРАНСТВО\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "div.sidebar__bottom > div.sidebar-profile > div.sidebar-profile__copy > span \"Руководитель продаж\"",
+    "msg": "a caption, label or muted line in #8993a3 on #ffffff reads 3.1:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "div.sidebar__bottom > div.sidebar-profile > div.sidebar-profile__copy > span \"Руководитель продаж\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "header.topbar > div.topbar__actions > div.global-search > kbd.global-search__shortcut \"Ctrl K\"",
+    "msg": "a caption, label or muted line in #98a2b3 on #ffffff reads 2.58:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "header.topbar > div.topbar__actions > div.global-search > kbd.global-search__shortcut \"Ctrl K\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > p.page-date \"Пятница, 20 Ноября\"",
+    "msg": "a caption, label or muted line in #8c96a7 on #f6f8fb reads 2.81:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > p.page-date \"Пятница, 20 Ноября\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > p.page-intro__description \"Вот что происходит в вашей команде сегод\"",
+    "msg": "a caption, label or muted line in #7e899c on #f6f8fb reads 3.32:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > p.page-intro__description \"Вот что происходит в вашей команде сегод\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "section.stats-grid > article.stat-card:nth-of-type(1) > div.stat-card__top > span.stat-card__label \"Всего контактов\"",
+    "msg": "a caption, label or muted line in #7d889b on #ffffff reads 3.58:1 (needs 4.5:1); 9 like it, like \"Активные сделки\", \"Выручка\", \"Задачи на сегодня\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "section.stats-grid > article.stat-card:nth-of-type(1) > div.stat-card__top > span.stat-card__label \"Всего контактов\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(1) > span.stat-card__note \"В базе клиентов\"",
+    "msg": "a caption, label or muted line in #98a2b2 on #ffffff reads 2.58:1 (needs 4.5:1); 4 like it, like \"В работе команды\", \"По успешным сделкам\", \"задачи сегодня\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(1) > span.stat-card__note \"В базе клиентов\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "section.panel.sales-panel > div.panel-heading > div:nth-of-type(1) > span.eyebrow \"Продажи\"",
+    "msg": "a caption, label or muted line in #8b95a7 on #ffffff reads 3.02:1 (needs 4.5:1); 5 like it, like \"Воронка\", \"В работе\", \"На контроле\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "section.panel.sales-panel > div.panel-heading > div:nth-of-type(1) > span.eyebrow \"Продажи\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "section.panel.sales-panel > div.panel-heading > div.chart-summary > span.chart-summary__trend \"За 7 дней\"",
+    "msg": "a caption, label or muted line in #168d62 on #ffffff reads 4.18:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "section.panel.sales-panel > div.panel-heading > div.chart-summary > span.chart-summary__trend \"За 7 дней\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel > div.chart-footnote \"Успешные сделки по дате закрытия\"",
+    "msg": "a caption, label or muted line in #8d97a8 on #ffffff reads 2.95:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel > div.chart-footnote \"Успешные сделки по дате закрытия\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "section.dashboard-charts > section.panel.status-panel > div.panel-heading.panel-heading--compact > span.panel-period \"Всего: 10\"",
+    "msg": "a caption, label or muted line in #8994a7 on #ffffff reads 3.06:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "section.dashboard-charts > section.panel.status-panel > div.panel-heading.panel-heading--compact > span.panel-period \"Всего: 10\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "section.dashboard-bottom > section.panel.deals-panel > div.panel-heading > a.text-link \"Все сделки\"",
+    "msg": "a caption, label or muted line in #3778ed on #ffffff reads 4.14:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "section.dashboard-bottom > section.panel.deals-panel > div.panel-heading > a.text-link \"Все сделки\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "table.deals-table > thead > tr > th:nth-of-type(1) \"Сделка\"",
+    "msg": "a caption, label or muted line in #929bad on #fafbfd reads 2.7:1 (needs 4.5:1); 5 like it, like \"Контакт\", \"Сумма\", \"Этап\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "table.deals-table > thead > tr > th:nth-of-type(1) \"Сделка\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "tr:nth-of-type(1) > td:nth-of-type(2) > div.contact-cell > small \"Городские решения\"",
+    "msg": "a caption, label or muted line in #99a2b1 on #ffffff reads 2.57:1 (needs 4.5:1); 6 like it, like \"Северный ветер\", \"Маяк студия\", \"Тёплый дом\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "tr:nth-of-type(1) > td:nth-of-type(2) > div.contact-cell > small \"Городские решения\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "tbody > tr:nth-of-type(1) > td:nth-of-type(4) > span.stage-badge.stage-badge--new \"Новая\"",
+    "msg": "a caption, label or muted line in #5184d4 on #eff5ff reads 3.42:1 (needs 4.5:1); 2 like it, like \"Новая\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "tbody > tr:nth-of-type(1) > td:nth-of-type(4) > span.stage-badge.stage-badge--new \"Новая\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "table.deals-table > tbody > tr:nth-of-type(1) > td.date-cell \"20 нояб.\"",
+    "msg": "a caption, label or muted line in #8390a3 on #ffffff reads 3.24:1 (needs 4.5:1); 6 like it, like \"19 нояб.\", \"19 нояб.\", \"19 нояб.\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "table.deals-table > tbody > tr:nth-of-type(1) > td.date-cell \"20 нояб.\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "tbody > tr:nth-of-type(1) > td:nth-of-type(6) > span.table-avatar \"И\"",
+    "msg": "a caption, label or muted line in #3c6fbf on #edf3ff reads 4.47:1 (needs 4.5:1); 6 like it, like \"И\", \"А\", \"М\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "tbody > tr:nth-of-type(1) > td:nth-of-type(6) > span.table-avatar \"И\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__body > span \"Для встречи с командой «Маяк студия».\"",
+    "msg": "a caption, label or muted line in #7c8799 on #ffffff reads 3.63:1 (needs 4.5:1); 5 like it, like \"Уточнить состав команд\", \"Согласовать этапы запу\", \"Приложить краткую през\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__body > span \"Для встречи с командой «Маяк студия».\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__meta > span.priority.priority--high \"Высокий\"",
+    "msg": "a caption, label or muted line in #c87916 on #ffffff reads 3.39:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__meta > span.priority.priority--high \"Высокий\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__meta > small \"Сегодня, 17:00\"",
+    "msg": "a caption, label or muted line in #788499 on #ffffff reads 3.78:1 (needs 4.5:1); 5 like it, like \"Сегодня, 18:00\", \"Сегодня, 19:00\", \"21 нояб., 11:00\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__meta > small \"Сегодня, 17:00\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "tbody > tr:nth-of-type(2) > td:nth-of-type(4) > span.stage-badge.stage-badge--won \"Успешно\"",
+    "msg": "a caption, label or muted line in #17885c on #eaf7f1 reads 4.05:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "tbody > tr:nth-of-type(2) > td:nth-of-type(4) > span.stage-badge.stage-badge--won \"Успешно\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "tbody > tr:nth-of-type(3) > td:nth-of-type(4) > span.stage-badge.stage-badge--negotiation \"Переговоры\"",
+    "msg": "a caption, label or muted line in #7964d8 on #f2efff reads 4.01:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "tbody > tr:nth-of-type(3) > td:nth-of-type(4) > span.stage-badge.stage-badge--negotiation \"Переговоры\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "tbody > tr:nth-of-type(5) > td:nth-of-type(4) > span.stage-badge.stage-badge--proposal \"Предложение\"",
+    "msg": "a caption, label or muted line in #c18225 on #fff6e8 reads 3.02:1 (needs 4.5:1); 2 like it, like \"Предложение\"",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "tbody > tr:nth-of-type(5) > td:nth-of-type(4) > span.stage-badge.stage-badge--proposal \"Предложение\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\"",
+    "msg": "a caption, label or muted line in #758198 on #f6f8fb reads 3.69:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\""
+    ]
+   },
+   {
+    "check": "field-label",
+    "where": "header.topbar > div.topbar__actions:nth-of-type(2) > div.global-search:nth-of-type(1) > input",
+    "msg": "a input[type=search] without a label you can see: only a placeholder (\"Поиск по CRM\") names it",
+    "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "field-label"
+    ],
+    "wheres": [
+     "header.topbar > div.topbar__actions:nth-of-type(2) > div.global-search:nth-of-type(1) > input"
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "div.app-shell > aside.sidebar > div.sidebar__top:nth-of-type(1) > a.brand.active \"FlowCRM — обзор\"",
+    "msg": "Tab stop 1, a \"FlowCRM — обзор\": its focus change is faint: 1.73:1 against the ground, 3:1 needed",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "div.app-shell > aside.sidebar > div.sidebar__top:nth-of-type(1) > a.brand.active \"FlowCRM — обзор\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link.nav-link--active:nth-of-type(1) \"Обзор\"",
+    "msg": "Tab stop 2, a \"Обзор\": its focus change is faint: 1.73:1 against the ground, 3:1 needed",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link.nav-link--active:nth-of-type(1) \"Обзор\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link:nth-of-type(2) \"Сделки\"",
+    "msg": "Tab stop 3, a \"Сделки\": its focus change is faint: 1.73:1 against the ground, 3:1 needed",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link:nth-of-type(2) \"Сделки\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link:nth-of-type(3) \"Контакты\"",
+    "msg": "Tab stop 4, a \"Контакты\": its focus change is faint: 1.73:1 against the ground, 3:1 needed",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link:nth-of-type(3) \"Контакты\""
+    ]
+   },
+   {
+    "check": "moment-none",
+    "where": "(the page)",
+    "msg": "a software page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+    "fix": "deal one (moments.mjs pick --page software) and mount it in its own section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "moment-none"
+    ],
+    "wheres": [
+     "(the page)"
+    ]
+   },
+   {
+    "check": "hero-screen",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \"",
+    "msg": "the hero ends at 181px on a 900px screen, 720px above the fold: it ends at the fold, 1px either way (SR-1)",
+    "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-screen"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \""
+    ]
+   },
+   {
+    "check": "hero-screen",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов8В базе клиентовАктивные \"",
+    "msg": "698px of the next section shows on the first screen (from 203px on a 900px screen): nothing below the hero shows at load (SR-1)",
+    "fix": "end the hero at the fold so nothing of the next section shows at load (hero height: 100svh)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-screen"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов8В базе клиентовАктивные \""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\"",
+    "msg": "the section is 17px tall (0 screens), 884px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов8В базе клиентовАктивные \"",
+    "msg": "the section is 131px tall (0.1 screens), 770px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов8В базе клиентовАктивные \""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts \"ПродажиДинамика выручки540 000 ₽ За 7 дн\"",
+    "msg": "the section is 321px tall (0.4 screens), 579px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 1 more like it: \"В работеПоследние сделки\") (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts \"ПродажиДинамика выручки540 000 ₽ За 7 дн\""
+    ]
+   },
+   {
+    "check": "section-air",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid / div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts",
+    "msg": "59px of air between the content of these two sections: 128-480px (64-600px WARN) (every gap out of the band at 1440px, top to bottom: 59px after \"Всего контактов8В ба\", 60px after \"ПродажиДинамика выру\") (SR-3)",
+    "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-air"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid / div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts"
+    ]
+   },
+   {
+    "check": "section-air",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts / div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom",
+    "msg": "60px of air between the content of these two sections: 128-480px (64-600px WARN) (SR-3)",
+    "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-air"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts / div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom"
+    ]
+   },
+   {
+    "check": "section-air",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\"",
+    "msg": "the section shows no content: its content fills 0% of its 17px (55% or more) (SR-3)",
+    "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-air"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "h2#sales-chart-title \"Динамика выручки\"",
+    "msg": "the screen at scroll 203px (the top of section 2) shows 321px of section 3 and the heading of section 3 whole and the content of 3 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "h2#sales-chart-title \"Динамика выручки\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "h2#recent-deals-title \"Последние сделки\"",
+    "msg": "the screen at scroll 106px (the top of section 1) shows 308px of section 4 and the heading of section 4 whole and the content of 3 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "h2#recent-deals-title \"Последние сделки\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts \"ПродажиДинамика выручки540 000 ₽ За 7 дн\"",
+    "msg": "the screen at scroll 355px (the top of section 3) shows 245px of section 3 and the content of 2 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (and 2 more like it: scroll 0px, scroll 633px) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts \"ПродажиДинамика выручки540 000 ₽ За 7 дн\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \"",
+    "msg": "a <div> sits directly in <main>: every part of <main> is a <section> (SR-4)",
+    "fix": "put every block of <main> in a <section>, and give a band its own section instead of a ground inside one",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\"",
+    "msg": "a <div> sits directly in <main>: every part of <main> is a <section> (SR-4)",
+    "fix": "put every block of <main> in a <section>, and give a band its own section instead of a ground inside one",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\""
+    ]
+   },
+   {
+    "check": "one-heading",
+    "where": "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > h2 \"Добрый день, Мария\"",
+    "msg": "the hero holds an h2 (1): its heading is the h1, and an h2 opens the next section (SR-5)",
+    "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-heading"
+    ],
+    "wheres": [
+     "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > h2 \"Добрый день, Мария\""
+    ]
+   },
+   {
+    "check": "one-heading",
+    "where": "h2#status-chart-title \"Сделки по этапам\"",
+    "msg": "the section holds 2 h2 headings: one per section, first in its .wrap (SR-5)",
+    "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-heading"
+    ],
+    "wheres": [
+     "h2#status-chart-title \"Сделки по этапам\""
+    ]
+   },
+   {
+    "check": "one-heading",
+    "where": "h2#upcoming-tasks-title \"Ближайшие задачи\"",
+    "msg": "the section holds 3 h2 headings: one per section, first in its .wrap (SR-5)",
+    "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-heading"
+    ],
+    "wheres": [
+     "h2#upcoming-tasks-title \"Ближайшие задачи\""
+    ]
+   },
+   {
+    "check": "one-heading",
+    "where": "h2#sales-chart-title \"Динамика выручки\"",
+    "msg": "headings of two sections show whole on one screen at 7 of 13 scroll positions (53.8%; at scroll 0, 50, 100, 150px), here with \"Добрый день, Мария\": at most 3% on a desktop (SR-5)",
+    "fix": "make the sections one screen tall so their headings sit a screen apart and two never share one",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-heading"
+    ],
+    "wheres": [
+     "h2#sales-chart-title \"Динамика выручки\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div#root > div.app-shell > div.app-main > header.topbar \"ОбзорCtrl KМСМария\"",
+    "msg": "the nav's content runs 286px from the left and 34px from the right (read from its outermost blocks: no .wrap): 286 and 34px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div#root > div.app-shell > div.app-main > header.topbar \"ОбзорCtrl KМСМария\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \"",
+    "msg": "the content of section 1 runs 286px from the left and 34px from the right (read from its outermost blocks: no .wrap): 286 and 34px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (and 3 more like it: \"Всего контактов8В базе к\", \"ПродажиДинамика выручки5\", \"В работеПоследние сделки\") (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div#root \"FlowCRMРабочее пространствоОбзорСделкиКо\"",
+    "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div#root \"FlowCRMРабочее пространствоОбзорСделкиКо\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "span#recharts_measurement_span \"0\"",
+    "msg": "a <span> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (and 5 more like it: \"пятница, 20 ноябряДобрый\", \"Всего контактов8В базе к\", \"ПродажиДинамика выручки5\") (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "span#recharts_measurement_span \"0\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "h2#status-chart-title \"Сделки по этапам\"",
+    "msg": "the h2 starts 723px right of the container's left: every h1 and h2 starts on it, 2px either way (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "h2#status-chart-title \"Сделки по этапам\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "h2#upcoming-tasks-title \"Ближайшие задачи\"",
+    "msg": "the h2 starts 720px right of the container's left: every h1 and h2 starts on it, 2px either way (and 4 more like it: \"Последние события\", x 306, \"Динамика выручки\") (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "h2#upcoming-tasks-title \"Ближайшие задачи\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel \"ПродажиДинамика выручки540 000 ₽ За 7 дн\"",
+    "msg": "a box over half the container wide runs 286-975px, not on the container's lines at 286-1406px (SR-6)",
+    "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel \"ПродажиДинамика выручки540 000 ₽ За 7 дн\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel \"В работеПоследние сделкиВсе сделки Сделк\"",
+    "msg": "a box over half the container wide runs 286-975px, not on the container's lines at 286-1406px (SR-6)",
+    "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.app-main > main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel \"В работеПоследние сделкиВсе сделки Сделк\""
+    ]
+   },
+   {
+    "check": "row-lines",
+    "where": "main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel > div.table-scroll \"СделкаКонтактСуммаЭтапОбновленаДействиеИ\"",
+    "msg": "a sideways scroller: 3px of it hidden behind overflow-x: auto (SR-7)",
+    "fix": "show every item inside the container, or stack them: no sideways scroller, no half-cut carousel",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "row-lines"
+    ],
+    "wheres": [
+     "main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel > div.table-scroll \"СделкаКонтактСуммаЭтапОбновленаДействиеИ\""
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "div.app-main > main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(3) \"Выручка 540 000 ₽ По успешным сделкам\"",
+    "msg": "its last line sits 0px above the lower edge of section.stats-grid, where the ground changes to section.dashboard-charts",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "flush"
+    ],
+    "wheres": [
+     "div.app-main > main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(3) \"Выручка 540 000 ₽ По успешным сделкам\""
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.status-panel \"Воронка Сделки по этапам Всего: 10 10 сд\"",
+    "msg": "its last line sits 0px above the lower edge of section.dashboard-charts, where the ground changes to section.dashboard-bottom",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "flush"
+    ],
+    "wheres": [
+     "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.status-panel \"Воронка Сделки по этапам Всего: 10 10 сд\""
+    ]
+   },
+   {
+    "check": "off-viewport",
+    "where": "(the page)",
+    "msg": "the page is 661px wide on a 390px screen and scrolls sideways",
+    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency",
+    "ids": [
+     "off-viewport"
+    ],
+    "wheres": [
+     "(the page)"
+    ]
+   },
+   {
+    "check": "collide",
+    "where": "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__body > span \"Для встречи с командой «Маяк студия».\"",
+    "msg": "the words \"Для встречи с командой «Маяк сту\" lie over \"Сегодня, 17:00\": two lines in one place",
+    "fix": "on a phone nothing lies on anything else: let the section grow with its content (min-height for its screens, never a fixed height; --hm: 2 when it needs two) or cut what it holds; keep pictures and cards off the buttons; pad the page under a fixed bar by the bar's height (top: the first section; end: the footer)",
+    "widths": [
+     320
+    ],
+    "from": "consistency",
+    "ids": [
+     "collide"
+    ],
+    "wheres": [
+     "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__body > span \"Для встречи с командой «Маяк студия».\""
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "copy-headline",
+    "where": "div.app-main > header.topbar > div.topbar__title-wrap > h1.topbar__title \"Обзор\"",
+    "msg": "the h1 has 0 words (2 to 8 read at a glance)",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-actions",
+    "where": "(the page)",
+    "msg": "the main action \"Найти контакт\" does not read word for word the same in the nav or hero and the closing section",
+    "fix": "few actions, one wording: at most 2 in the hero, the main action word for word in nav, hero and close",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "heading-scale",
+    "where": "(the page)",
+    "msg": "the page has no visible h1",
+    "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-length",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\"",
+    "msg": "1 section over 90 words a screen outside the UI mocks (\"Последние сделки\" 206); 69 words a screen across the page (276 words in 4 screens): a tech page says it in about 80 or fewer",
+    "fix": "cut every section to its heading, one line and the product UI: the UI says the rest; no second paragraph, no list of feature sentences",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "font-load",
+    "where": "div.app-main > header.topbar > div.topbar__title-wrap > h1.topbar__title \"Inter\"",
+    "msg": "\"Inter\" is asked for by the h1, the h2s and the body text but never loaded (no font link or @font-face loads it): it shows in its fallback",
+    "fix": "load every family the type asks for: name it in the font link as start.mjs prints it, spelt as Google Fonts spells it, or ask for a family the page loads",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "visual-caption",
+    "where": "main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel > div.chart-footnote \"Успешные сделки по дате закрытия\"",
+    "msg": "a muted 11px line of 1 row sits 1px under the drawing (svg): it reads as a caption: \"Успешные сделки по дате закрытия\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "skip-link",
+    "where": "div.app-shell > aside.sidebar > div.sidebar__top:nth-of-type(1) > a.brand.active \"FlowCRM — обзор\"",
+    "msg": "the first Tab stop is \"FlowCRM — обзор\", not a skip link: a keyboard user tabs through the whole nav on every visit",
+    "fix": "add the starter's skip link as the header's first child: <a class=\"skip-link\" href=\"#top\">Skip to content</a>",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "share-meta",
+    "where": "head",
+    "msg": "the head lacks og:title, og:description, og:image, twitter:card, an icon: a shared link shows no picture or title of its own",
+    "fix": "copy the head block of starter.html: og tags, twitter:card, the icon and theme-color (references/system.md, Head)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "header.topbar > div.topbar__actions > div.global-search > input",
+    "msg": "a 116x17px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro / div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid",
+    "msg": "25px between these sections, +56% against the median 16px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-stat-strip",
+    "msg": "stat strip x1",
+    "fix": "a strip only of figures the brief gives (a price, hours, a count); otherwise put each number in the sentence it proves, or leave it out (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x1: \"8 / 6 / 3 / 2 / 1 / 2...\"",
+    "exact": false
+   },
+   {
+    "check": "copy-eyebrows",
+    "msg": "5 eyebrow or kicker labels",
+    "fix": "one or two a page; a heading that names the thing needs no label over it (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "(the copy)",
+    "exact": false
+   }
+  ],
+  "crashed": [
+   "check.mjs could not run (exit 2: no Chrome found (set CHROME_PATH))"
+  ],
+  "seconds": {
+   "consistency": 75,
+   "layout": 0
+  }
+ },
+ "open": [
+  {
+   "check": "hero-fill",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов 8 В базе клиентов Активн\"",
+   "msg": "the next section shows on the first screen: it starts at 203px on a 900px screen (the hero ends at 181px)",
+   "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-fill"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов 8 В базе клиентов Активн\""
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "div.app-main > main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(1) \"Всего контактов 8 В базе клиентов\"",
+   "msg": "its first line sits 0px under the top edge of section.stats-grid, where the ground changes",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "flush"
+   ],
+   "wheres": [
+    "div.app-main > main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(1) \"Всего контактов 8 В базе клиентов\""
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel \"Продажи Динамика выручки 540 000 ₽ За 7 \"",
+   "msg": "its first line sits 0px under the top edge of section.dashboard-charts, where the ground changes",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "flush"
+   ],
+   "wheres": [
+    "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel \"Продажи Динамика выручки 540 000 ₽ За 7 \""
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel \"В работе Последние сделки Все сделки Сде\"",
+   "msg": "its first line sits 0px under the top edge of section.dashboard-bottom, where the ground changes",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "flush"
+   ],
+   "wheres": [
+    "div.app-main > main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel \"В работе Последние сделки Все сделки Сде\""
+   ]
+  },
+  {
+   "check": "text-only",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\"",
+   "msg": "the closing section is only text: no picture, icon, mock or effect in it",
+   "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-only"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\""
+   ]
+  },
+  {
+   "check": "cta",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro",
+   "msg": "the hero has no button (the nav's does not count)",
+   "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "cta"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro"
+   ]
+  },
+  {
+   "check": "cta",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\"",
+   "msg": "the last section before the footer ends with no button",
+   "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "cta"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom \"Последние сделки\""
+   ]
+  },
+  {
+   "check": "copy-headline",
+   "where": "div.app-main > header.topbar > div.topbar__title-wrap > h1.topbar__title \"Обзор\"",
+   "msg": "\"Обзор\" does not name what is sold (crm, from flags)",
+   "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-headline"
+   ],
+   "wheres": [
+    "div.app-main > header.topbar > div.topbar__title-wrap > h1.topbar__title \"Обзор\""
+   ]
+  },
+  {
+   "check": "heading-scale",
+   "where": "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > h2 \"Добрый день, Мария\"",
+   "msg": "h2 headings in 2 sizes, 14px (\"Динамика выручки\") to 24px (x1.71)",
+   "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "heading-scale"
+   ],
+   "wheres": [
+    "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > h2 \"Добрый день, Мария\""
+   ]
+  },
+  {
+   "check": "contrast",
+   "where": "div.status-chart-wrap > div.status-chart > div.status-chart-center > span \"сделок\"",
+   "msg": "body text over a effect reads at 3.1:1 at its worst tenth (needs 4.5:1)",
+   "fix": "put the text on a calm part of the picture, or on a solid panel",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "contrast"
+   ],
+   "wheres": [
+    "div.status-chart-wrap > div.status-chart > div.status-chart-center > span \"сделок\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "div#root > div.app-shell > aside.sidebar > div.sidebar__label \"РАБОЧЕЕ ПРОСТРАНСТВО\"",
+   "msg": "a caption, label or muted line in #9aa3b2 on #ffffff reads 2.54:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "div#root > div.app-shell > aside.sidebar > div.sidebar__label \"РАБОЧЕЕ ПРОСТРАНСТВО\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "div.sidebar__bottom > div.sidebar-profile > div.sidebar-profile__copy > span \"Руководитель продаж\"",
+   "msg": "a caption, label or muted line in #8993a3 on #ffffff reads 3.1:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "div.sidebar__bottom > div.sidebar-profile > div.sidebar-profile__copy > span \"Руководитель продаж\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "header.topbar > div.topbar__actions > div.global-search > kbd.global-search__shortcut \"Ctrl K\"",
+   "msg": "a caption, label or muted line in #98a2b3 on #ffffff reads 2.58:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "header.topbar > div.topbar__actions > div.global-search > kbd.global-search__shortcut \"Ctrl K\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > p.page-date \"Пятница, 20 Ноября\"",
+   "msg": "a caption, label or muted line in #8c96a7 on #f6f8fb reads 2.81:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > p.page-date \"Пятница, 20 Ноября\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > p.page-intro__description \"Вот что происходит в вашей команде сегод\"",
+   "msg": "a caption, label or muted line in #7e899c on #f6f8fb reads 3.32:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > p.page-intro__description \"Вот что происходит в вашей команде сегод\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "section.stats-grid > article.stat-card:nth-of-type(1) > div.stat-card__top > span.stat-card__label \"Всего контактов\"",
+   "msg": "a caption, label or muted line in #7d889b on #ffffff reads 3.58:1 (needs 4.5:1); 9 like it, like \"Активные сделки\", \"Выручка\", \"Задачи на сегодня\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "section.stats-grid > article.stat-card:nth-of-type(1) > div.stat-card__top > span.stat-card__label \"Всего контактов\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(1) > span.stat-card__note \"В базе клиентов\"",
+   "msg": "a caption, label or muted line in #98a2b2 on #ffffff reads 2.58:1 (needs 4.5:1); 4 like it, like \"В работе команды\", \"По успешным сделкам\", \"задачи сегодня\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(1) > span.stat-card__note \"В базе клиентов\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "section.panel.sales-panel > div.panel-heading > div:nth-of-type(1) > span.eyebrow \"Продажи\"",
+   "msg": "a caption, label or muted line in #8b95a7 on #ffffff reads 3.02:1 (needs 4.5:1); 5 like it, like \"Воронка\", \"В работе\", \"На контроле\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "section.panel.sales-panel > div.panel-heading > div:nth-of-type(1) > span.eyebrow \"Продажи\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "section.panel.sales-panel > div.panel-heading > div.chart-summary > span.chart-summary__trend \"За 7 дней\"",
+   "msg": "a caption, label or muted line in #168d62 on #ffffff reads 4.18:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "section.panel.sales-panel > div.panel-heading > div.chart-summary > span.chart-summary__trend \"За 7 дней\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel > div.chart-footnote \"Успешные сделки по дате закрытия\"",
+   "msg": "a caption, label or muted line in #8d97a8 on #ffffff reads 2.95:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel > div.chart-footnote \"Успешные сделки по дате закрытия\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "section.dashboard-charts > section.panel.status-panel > div.panel-heading.panel-heading--compact > span.panel-period \"Всего: 10\"",
+   "msg": "a caption, label or muted line in #8994a7 on #ffffff reads 3.06:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "section.dashboard-charts > section.panel.status-panel > div.panel-heading.panel-heading--compact > span.panel-period \"Всего: 10\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "section.dashboard-bottom > section.panel.deals-panel > div.panel-heading > a.text-link \"Все сделки\"",
+   "msg": "a caption, label or muted line in #3778ed on #ffffff reads 4.14:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "section.dashboard-bottom > section.panel.deals-panel > div.panel-heading > a.text-link \"Все сделки\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "table.deals-table > thead > tr > th:nth-of-type(1) \"Сделка\"",
+   "msg": "a caption, label or muted line in #929bad on #fafbfd reads 2.7:1 (needs 4.5:1); 5 like it, like \"Контакт\", \"Сумма\", \"Этап\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "table.deals-table > thead > tr > th:nth-of-type(1) \"Сделка\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "tr:nth-of-type(1) > td:nth-of-type(2) > div.contact-cell > small \"Городские решения\"",
+   "msg": "a caption, label or muted line in #99a2b1 on #ffffff reads 2.57:1 (needs 4.5:1); 6 like it, like \"Северный ветер\", \"Маяк студия\", \"Тёплый дом\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "tr:nth-of-type(1) > td:nth-of-type(2) > div.contact-cell > small \"Городские решения\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "tbody > tr:nth-of-type(1) > td:nth-of-type(4) > span.stage-badge.stage-badge--new \"Новая\"",
+   "msg": "a caption, label or muted line in #5184d4 on #eff5ff reads 3.42:1 (needs 4.5:1); 2 like it, like \"Новая\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "tbody > tr:nth-of-type(1) > td:nth-of-type(4) > span.stage-badge.stage-badge--new \"Новая\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "table.deals-table > tbody > tr:nth-of-type(1) > td.date-cell \"20 нояб.\"",
+   "msg": "a caption, label or muted line in #8390a3 on #ffffff reads 3.24:1 (needs 4.5:1); 6 like it, like \"19 нояб.\", \"19 нояб.\", \"19 нояб.\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "table.deals-table > tbody > tr:nth-of-type(1) > td.date-cell \"20 нояб.\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "tbody > tr:nth-of-type(1) > td:nth-of-type(6) > span.table-avatar \"И\"",
+   "msg": "a caption, label or muted line in #3c6fbf on #edf3ff reads 4.47:1 (needs 4.5:1); 6 like it, like \"И\", \"А\", \"М\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "tbody > tr:nth-of-type(1) > td:nth-of-type(6) > span.table-avatar \"И\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__body > span \"Для встречи с командой «Маяк студия».\"",
+   "msg": "a caption, label or muted line in #7c8799 on #ffffff reads 3.63:1 (needs 4.5:1); 5 like it, like \"Уточнить состав команд\", \"Согласовать этапы запу\", \"Приложить краткую през\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__body > span \"Для встречи с командой «Маяк студия».\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__meta > span.priority.priority--high \"Высокий\"",
+   "msg": "a caption, label or muted line in #c87916 on #ffffff reads 3.39:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__meta > span.priority.priority--high \"Высокий\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__meta > small \"Сегодня, 17:00\"",
+   "msg": "a caption, label or muted line in #788499 on #ffffff reads 3.78:1 (needs 4.5:1); 5 like it, like \"Сегодня, 18:00\", \"Сегодня, 19:00\", \"21 нояб., 11:00\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__meta > small \"Сегодня, 17:00\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "tbody > tr:nth-of-type(2) > td:nth-of-type(4) > span.stage-badge.stage-badge--won \"Успешно\"",
+   "msg": "a caption, label or muted line in #17885c on #eaf7f1 reads 4.05:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "tbody > tr:nth-of-type(2) > td:nth-of-type(4) > span.stage-badge.stage-badge--won \"Успешно\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "tbody > tr:nth-of-type(3) > td:nth-of-type(4) > span.stage-badge.stage-badge--negotiation \"Переговоры\"",
+   "msg": "a caption, label or muted line in #7964d8 on #f2efff reads 4.01:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "tbody > tr:nth-of-type(3) > td:nth-of-type(4) > span.stage-badge.stage-badge--negotiation \"Переговоры\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "tbody > tr:nth-of-type(5) > td:nth-of-type(4) > span.stage-badge.stage-badge--proposal \"Предложение\"",
+   "msg": "a caption, label or muted line in #c18225 on #fff6e8 reads 3.02:1 (needs 4.5:1); 2 like it, like \"Предложение\"",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "tbody > tr:nth-of-type(5) > td:nth-of-type(4) > span.stage-badge.stage-badge--proposal \"Предложение\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\"",
+   "msg": "a caption, label or muted line in #758198 on #f6f8fb reads 3.69:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\""
+   ]
+  },
+  {
+   "check": "field-label",
+   "where": "header.topbar > div.topbar__actions:nth-of-type(2) > div.global-search:nth-of-type(1) > input",
+   "msg": "a input[type=search] without a label you can see: only a placeholder (\"Поиск по CRM\") names it",
+   "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "field-label"
+   ],
+   "wheres": [
+    "header.topbar > div.topbar__actions:nth-of-type(2) > div.global-search:nth-of-type(1) > input"
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "div.app-shell > aside.sidebar > div.sidebar__top:nth-of-type(1) > a.brand.active \"FlowCRM — обзор\"",
+   "msg": "Tab stop 1, a \"FlowCRM — обзор\": its focus change is faint: 1.73:1 against the ground, 3:1 needed",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "div.app-shell > aside.sidebar > div.sidebar__top:nth-of-type(1) > a.brand.active \"FlowCRM — обзор\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link.nav-link--active:nth-of-type(1) \"Обзор\"",
+   "msg": "Tab stop 2, a \"Обзор\": its focus change is faint: 1.73:1 against the ground, 3:1 needed",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link.nav-link--active:nth-of-type(1) \"Обзор\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link:nth-of-type(2) \"Сделки\"",
+   "msg": "Tab stop 3, a \"Сделки\": its focus change is faint: 1.73:1 against the ground, 3:1 needed",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link:nth-of-type(2) \"Сделки\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link:nth-of-type(3) \"Контакты\"",
+   "msg": "Tab stop 4, a \"Контакты\": its focus change is faint: 1.73:1 against the ground, 3:1 needed",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "div.app-shell > aside.sidebar > nav.sidebar__nav > a.nav-link:nth-of-type(3) \"Контакты\""
+   ]
+  },
+  {
+   "check": "moment-none",
+   "where": "(the page)",
+   "msg": "a software page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+   "fix": "deal one (moments.mjs pick --page software) and mount it in its own section",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "moment-none"
+   ],
+   "wheres": [
+    "(the page)"
+   ]
+  },
+  {
+   "check": "hero-screen",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \"",
+   "msg": "the hero ends at 181px on a 900px screen, 720px above the fold: it ends at the fold, 1px either way (SR-1)",
+   "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-screen"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \""
+   ]
+  },
+  {
+   "check": "hero-screen",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов8В базе клиентовАктивные \"",
+   "msg": "698px of the next section shows on the first screen (from 203px on a 900px screen): nothing below the hero shows at load (SR-1)",
+   "fix": "end the hero at the fold so nothing of the next section shows at load (hero height: 100svh)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-screen"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов8В базе клиентовАктивные \""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\"",
+   "msg": "the section is 17px tall (0 screens), 884px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов8В базе клиентовАктивные \"",
+   "msg": "the section is 131px tall (0.1 screens), 770px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid \"Всего контактов8В базе клиентовАктивные \""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts \"ПродажиДинамика выручки540 000 ₽ За 7 дн\"",
+   "msg": "the section is 321px tall (0.4 screens), 579px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 1 more like it: \"В работеПоследние сделки\") (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts \"ПродажиДинамика выручки540 000 ₽ За 7 дн\""
+   ]
+  },
+  {
+   "check": "section-air",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid / div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts",
+   "msg": "59px of air between the content of these two sections: 128-480px (64-600px WARN) (every gap out of the band at 1440px, top to bottom: 59px after \"Всего контактов8В ба\", 60px after \"ПродажиДинамика выру\") (SR-3)",
+   "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-air"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.stats-grid / div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts"
+   ]
+  },
+  {
+   "check": "section-air",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts / div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom",
+   "msg": "60px of air between the content of these two sections: 128-480px (64-600px WARN) (SR-3)",
+   "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-air"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts / div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-bottom"
+   ]
+  },
+  {
+   "check": "section-air",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\"",
+   "msg": "the section shows no content: its content fills 0% of its 17px (55% or more) (SR-3)",
+   "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-air"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "h2#sales-chart-title \"Динамика выручки\"",
+   "msg": "the screen at scroll 203px (the top of section 2) shows 321px of section 3 and the heading of section 3 whole and the content of 3 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "h2#sales-chart-title \"Динамика выручки\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "h2#recent-deals-title \"Последние сделки\"",
+   "msg": "the screen at scroll 106px (the top of section 1) shows 308px of section 4 and the heading of section 4 whole and the content of 3 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "h2#recent-deals-title \"Последние сделки\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts \"ПродажиДинамика выручки540 000 ₽ За 7 дн\"",
+   "msg": "the screen at scroll 355px (the top of section 3) shows 245px of section 3 and the content of 2 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (and 2 more like it: scroll 0px, scroll 633px) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > section.dashboard-charts \"ПродажиДинамика выручки540 000 ₽ За 7 дн\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \"",
+   "msg": "a <div> sits directly in <main>: every part of <main> is a <section> (SR-4)",
+   "fix": "put every block of <main> in a <section>, and give a band its own section instead of a ground inside one",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\"",
+   "msg": "a <div> sits directly in <main>: every part of <main> is a <section> (SR-4)",
+   "fix": "put every block of <main> in a <section>, and give a band its own section instead of a ground inside one",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > div.dashboard-note \"Показатели и карточки на этой странице —\""
+   ]
+  },
+  {
+   "check": "one-heading",
+   "where": "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > h2 \"Добрый день, Мария\"",
+   "msg": "the hero holds an h2 (1): its heading is the h1, and an h2 opens the next section (SR-5)",
+   "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-heading"
+   ],
+   "wheres": [
+    "main.main-content.dashboard-page > div.page-intro > div:nth-of-type(1) > h2 \"Добрый день, Мария\""
+   ]
+  },
+  {
+   "check": "one-heading",
+   "where": "h2#status-chart-title \"Сделки по этапам\"",
+   "msg": "the section holds 2 h2 headings: one per section, first in its .wrap (SR-5)",
+   "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-heading"
+   ],
+   "wheres": [
+    "h2#status-chart-title \"Сделки по этапам\""
+   ]
+  },
+  {
+   "check": "one-heading",
+   "where": "h2#upcoming-tasks-title \"Ближайшие задачи\"",
+   "msg": "the section holds 3 h2 headings: one per section, first in its .wrap (SR-5)",
+   "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-heading"
+   ],
+   "wheres": [
+    "h2#upcoming-tasks-title \"Ближайшие задачи\""
+   ]
+  },
+  {
+   "check": "one-heading",
+   "where": "h2#sales-chart-title \"Динамика выручки\"",
+   "msg": "headings of two sections show whole on one screen at 7 of 13 scroll positions (53.8%; at scroll 0, 50, 100, 150px), here with \"Добрый день, Мария\": at most 3% on a desktop (SR-5)",
+   "fix": "make the sections one screen tall so their headings sit a screen apart and two never share one",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-heading"
+   ],
+   "wheres": [
+    "h2#sales-chart-title \"Динамика выручки\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div#root > div.app-shell > div.app-main > header.topbar \"ОбзорCtrl KМСМария\"",
+   "msg": "the nav's content runs 286px from the left and 34px from the right (read from its outermost blocks: no .wrap): 286 and 34px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div#root > div.app-shell > div.app-main > header.topbar \"ОбзорCtrl KМСМария\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \"",
+   "msg": "the content of section 1 runs 286px from the left and 34px from the right (read from its outermost blocks: no .wrap): 286 and 34px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (and 3 more like it: \"Всего контактов8В базе к\", \"ПродажиДинамика выручки5\", \"В работеПоследние сделки\") (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.app-shell > div.app-main > main.main-content.dashboard-page > div.page-intro \"пятница, 20 ноябряДобрый день, МарияВот \""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div#root \"FlowCRMРабочее пространствоОбзорСделкиКо\"",
+   "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div#root \"FlowCRMРабочее пространствоОбзорСделкиКо\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "span#recharts_measurement_span \"0\"",
+   "msg": "a <span> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (and 5 more like it: \"пятница, 20 ноябряДобрый\", \"Всего контактов8В базе к\", \"ПродажиДинамика выручки5\") (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "span#recharts_measurement_span \"0\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "h2#status-chart-title \"Сделки по этапам\"",
+   "msg": "the h2 starts 723px right of the container's left: every h1 and h2 starts on it, 2px either way (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "h2#status-chart-title \"Сделки по этапам\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "h2#upcoming-tasks-title \"Ближайшие задачи\"",
+   "msg": "the h2 starts 720px right of the container's left: every h1 and h2 starts on it, 2px either way (and 4 more like it: \"Последние события\", x 306, \"Динамика выручки\") (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "h2#upcoming-tasks-title \"Ближайшие задачи\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel \"ПродажиДинамика выручки540 000 ₽ За 7 дн\"",
+   "msg": "a box over half the container wide runs 286-975px, not on the container's lines at 286-1406px (SR-6)",
+   "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.sales-panel \"ПродажиДинамика выручки540 000 ₽ За 7 дн\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel \"В работеПоследние сделкиВсе сделки Сделк\"",
+   "msg": "a box over half the container wide runs 286-975px, not on the container's lines at 286-1406px (SR-6)",
+   "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.app-main > main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel \"В работеПоследние сделкиВсе сделки Сделк\""
+   ]
+  },
+  {
+   "check": "row-lines",
+   "where": "main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel > div.table-scroll \"СделкаКонтактСуммаЭтапОбновленаДействиеИ\"",
+   "msg": "a sideways scroller: 3px of it hidden behind overflow-x: auto (SR-7)",
+   "fix": "show every item inside the container, or stack them: no sideways scroller, no half-cut carousel",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "row-lines"
+   ],
+   "wheres": [
+    "main.main-content.dashboard-page > section.dashboard-bottom > section.panel.deals-panel > div.table-scroll \"СделкаКонтактСуммаЭтапОбновленаДействиеИ\""
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "div.app-main > main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(3) \"Выручка 540 000 ₽ По успешным сделкам\"",
+   "msg": "its last line sits 0px above the lower edge of section.stats-grid, where the ground changes to section.dashboard-charts",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "flush"
+   ],
+   "wheres": [
+    "div.app-main > main.main-content.dashboard-page > section.stats-grid > article.stat-card:nth-of-type(3) \"Выручка 540 000 ₽ По успешным сделкам\""
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.status-panel \"Воронка Сделки по этапам Всего: 10 10 сд\"",
+   "msg": "its last line sits 0px above the lower edge of section.dashboard-charts, where the ground changes to section.dashboard-bottom",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "flush"
+   ],
+   "wheres": [
+    "div.app-main > main.main-content.dashboard-page > section.dashboard-charts > section.panel.status-panel \"Воронка Сделки по этапам Всего: 10 10 сд\""
+   ]
+  },
+  {
+   "check": "off-viewport",
+   "where": "(the page)",
+   "msg": "the page is 661px wide on a 390px screen and scrolls sideways",
+   "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
+   "widths": [
+    390,
+    320
+   ],
+   "from": "consistency",
+   "ids": [
+    "off-viewport"
+   ],
+   "wheres": [
+    "(the page)"
+   ]
+  },
+  {
+   "check": "collide",
+   "where": "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__body > span \"Для встречи с командой «Маяк студия».\"",
+   "msg": "the words \"Для встречи с командой «Маяк сту\" lie over \"Сегодня, 17:00\": two lines in one place",
+   "fix": "on a phone nothing lies on anything else: let the section grow with its content (min-height for its screens, never a fixed height; --hm: 2 when it needs two) or cut what it holds; keep pictures and cards off the buttons; pad the page under a fixed bar by the bar's height (top: the first section; end: the footer)",
+   "widths": [
+    320
+   ],
+   "from": "consistency",
+   "ids": [
+    "collide"
+   ],
+   "wheres": [
+    "ul.task-list > li.task-row:nth-of-type(1) > div.task-row__body > span \"Для встречи с командой «Маяк студия».\""
+   ]
+  }
+ ],
+ "waived": [],
+ "warnCount": 12,
+ "at": "2026-11-20T11:11:26.642Z"
+}

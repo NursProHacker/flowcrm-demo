@@ -1,0 +1,38 @@
+{
+  "name": "flowcrm",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node -e \"require('node:fs').mkdirSync('.cache', { recursive: true })\"",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "pretypecheck": "node -e \"require('node:fs').mkdirSync('.cache', { recursive: true })\"",
+    "typecheck": "tsc -b --pretty"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-is": "^19.3.1",
+    "react-router": "^7.1.0",
+    "recharts": "^3.11.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "eslint": "^10.0.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^6.0.0",
+    "typescript-eslint": "^8.18.0",
+    "vite": "^8.0.0"
+  }
+}
