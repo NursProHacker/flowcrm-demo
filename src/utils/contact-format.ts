@@ -1,4 +1,5 @@
 import type { ContactStatus, ContactType } from '../types/domain';
+import { formatRegionDate } from './region-format';
 
 export const contactTypeLabels: Record<ContactType, string> = {
   lead: 'Потенциальный клиент',
@@ -11,8 +12,4 @@ export const contactStatusLabels: Record<ContactStatus, string> = {
   inactive: 'Неактивный',
 };
 
-export const contactDateFormat = new Intl.DateTimeFormat('ru-RU', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric',
-});
+export const contactDateFormat = { format: (date: Date) => formatRegionDate(date, { month: 'short' }) };

@@ -2,6 +2,8 @@ import { Bell, Menu, Search, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import type { DashboardSnapshot } from '../../services/dashboard-service';
+import { useAppSettings } from '../../contexts/useAppSettings';
+import { isTaskOverdue } from '../../services/task-service';
 
 interface HeaderProps {
   title: string;
@@ -11,6 +13,7 @@ interface HeaderProps {
 }
 
 export function Header({ title, mobileMenuOpen, onToggleMenu, snapshot }: HeaderProps) {
+  const { settings, t } = useAppSettings();
   const [query, setQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -43,6 +46,17 @@ export function Header({ title, mobileMenuOpen, onToggleMenu, snapshot }: Header
       .map((deal) => ({ id: deal.id, title: deal.title, detail: 'Сделка', to: '/deals', type: 'Сделка' }));
     return [...contacts, ...deals].slice(0, 5);
   }, [normalizedQuery, snapshot]);
+  const notifications = useMemo(() => {
+    if (!snapshot) return [];
+    const now = new Date();
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: settings.timeZone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+    const items: Array<{ id: string; text: string }> = [];
+    if (settings.notifications.overdueTasks) snapshot.tasks.filter((task) => isTaskOverdue(task, now)).slice(0, 2).forEach((task) => items.push({ id: `overdue-${task.id}`, text: `Просрочена задача: ${task.title}` }));
+    if (settings.notifications.taskDue) snapshot.tasks.filter((task) => task.status !== 'completed' && task.status !== 'cancelled' && new Intl.DateTimeFormat('en-CA', { timeZone: settings.timeZone }).format(new Date(task.dueDate)) === today).slice(0, 2).forEach((task) => items.push({ id: `due-${task.id}`, text: `Срок задачи сегодня: ${task.title}` }));
+    if (settings.notifications.upcomingEvents) snapshot.calendarEvents.filter((event) => Date.parse(event.startAt) >= now.getTime()).sort((a, b) => Date.parse(a.startAt) - Date.parse(b.startAt)).slice(0, 2).forEach((event) => items.push({ id: `event-${event.id}`, text: `Скоро событие: ${event.title}` }));
+    if (settings.notifications.dealStageChanges) snapshot.activities.filter((activity) => activity.entityType === 'deal' && activity.type === 'status_changed').slice(0, 3).forEach((activity) => items.push({ id: activity.id, text: activity.description }));
+    return items.slice(0, 5);
+  }, [settings.notifications, settings.timeZone, snapshot]);
 
   return (
     <header className="topbar">
@@ -51,7 +65,7 @@ export function Header({ title, mobileMenuOpen, onToggleMenu, snapshot }: Header
           className="icon-button topbar__menu"
           type="button"
           onClick={onToggleMenu}
-          aria-label={mobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+          aria-label={mobileMenuOpen ? t('Закрыть меню') : t('Открыть меню')}
           aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -69,8 +83,8 @@ export function Header({ title, mobileMenuOpen, onToggleMenu, snapshot }: Header
             onChange={(event) => setQuery(event.target.value)}
             onFocus={() => setSearchOpen(true)}
             onBlur={() => window.setTimeout(() => setSearchOpen(false), 140)}
-            placeholder="Поиск по CRM"
-            aria-label="Поиск по контактам и сделкам"
+            placeholder={t('Поиск по CRM')}
+            aria-label={t('Поиск по контактам и сделкам')}
             aria-expanded={searchOpen && normalizedQuery.length >= 2}
           />
           <kbd className="global-search__shortcut">Ctrl K</kbd>
@@ -84,10 +98,10 @@ export function Header({ title, mobileMenuOpen, onToggleMenu, snapshot }: Header
                   onClick={() => setQuery('')}
                   role="option"
                 >
-                  <span className="search-result__type">{result.type}</span>
+                  <span className="search-result__type">{t(result.type)}</span>
                   <span className="search-result__copy"><strong>{result.title}</strong><small>{result.detail}</small></span>
                 </Link>
-              )) : <p className="search-empty">Ничего не найдено</p>}
+              )) : <p className="search-empty">{t('Ничего не найдено')}</p>}
             </div>
           )}
         </div>
@@ -96,29 +110,29 @@ export function Header({ title, mobileMenuOpen, onToggleMenu, snapshot }: Header
           <button
             className={`icon-button notification-button${notificationsOpen ? ' icon-button--selected' : ''}`}
             type="button"
-            aria-label="Уведомления"
+            aria-label={t('Уведомления')}
             aria-expanded={notificationsOpen}
             onClick={() => setNotificationsOpen((open) => !open)}
           >
             <Bell size={19} />
-            <span className="notification-dot" aria-hidden="true" />
+            {notifications.length > 0 && <span className="notification-dot" aria-hidden="true" />}
           </button>
           {notificationsOpen && (
             <div className="notification-popover">
-              <div className="popover-heading"><strong>Уведомления</strong><span>Последние события</span></div>
-              {snapshot?.activities.slice(0, 3).map((activity) => (
-                <div className="notification-item" key={activity.id}>
+              <div className="popover-heading"><strong>{t('Уведомления')}</strong><span>{t('Последние события')}</span></div>
+              {notifications.map((notification) => (
+                <div className="notification-item" key={notification.id}>
                   <span className="notification-item__dot" />
-                  <span>{activity.description}</span>
+                  <span>{notification.text}</span>
                 </div>
               ))}
-              {!snapshot?.activities.length && <p className="search-empty">Новых уведомлений нет</p>}
+              {!notifications.length && <p className="search-empty">{t('Новых уведомлений нет')}</p>}
             </div>
           )}
         </div>
-        <div className="topbar-user" aria-label="Текущий пользователь: Мария Смирнова">
-          <div className="avatar avatar--blue" aria-hidden="true">МС</div>
-          <span>Мария</span>
+        <div className="topbar-user" aria-label={`${settings.language === 'ru' ? 'Текущий пользователь' : 'Current user'}: ${settings.profile.fullName}`}>
+          <div className="avatar avatar--blue" aria-hidden="true">{settings.profile.avatarInitials}</div>
+          <span>{settings.profile.fullName.split(' ')[0]}</span>
         </div>
       </div>
     </header>

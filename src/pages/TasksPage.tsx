@@ -6,9 +6,10 @@ import { createTask, isTaskOverdue, taskPriorityLabels, taskStatusLabels, taskSt
 import type { Contact, Deal, Employee, Task, TaskPriority, TaskStatus } from '../types/domain';
 import { ConfirmDialog } from '../components/ui/ConfirmDialog';
 import { StatCard } from '../components/ui/StatCard';
+import { formatRegionDate } from '../utils/region-format';
 
 type View = 'list' | 'kanban';
-const dateLabel = (value: string) => new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(value));
+const dateLabel = (value: string) => formatRegionDate(value, { month: 'short', time: true });
 const dateInput = (value?: string) => { const date = value ? new Date(value) : new Date(Date.now() + 86400000); date.setMinutes(date.getMinutes() - date.getTimezoneOffset()); return date.toISOString().slice(0, 16); };
 
 export function TasksPage() {

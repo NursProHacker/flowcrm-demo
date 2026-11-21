@@ -10,6 +10,7 @@ import {
   X,
 } from 'lucide-react';
 import { NavLink } from 'react-router';
+import { useAppSettings } from '../../contexts/useAppSettings';
 
 const primaryNavigation = [
   { to: '/', label: 'Обзор', icon: LayoutDashboard, end: true },
@@ -26,6 +27,8 @@ interface SidebarProps {
 }
 
 export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
+  const { settings, t } = useAppSettings();
+  const initials = settings.profile.avatarInitials || settings.profile.fullName.split(/\s+/).slice(0, 2).map((part) => part[0]).join('').toLocaleUpperCase('ru-RU');
   return (
     <>
       {mobileOpen && (
@@ -49,7 +52,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           </button>
         </div>
 
-        <div className="sidebar__label">Рабочее пространство</div>
+        <div className="sidebar__label">{t('Рабочее пространство')}</div>
         <nav className="sidebar__nav">
           {primaryNavigation.map(({ to, label, icon: Icon, end }) => (
             <NavLink
@@ -60,7 +63,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
               className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}
             >
               <Icon size={19} strokeWidth={1.9} aria-hidden="true" />
-              <span>{label}</span>
+              <span>{t(label)}</span>
             </NavLink>
           ))}
         </nav>
@@ -73,13 +76,13 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
             className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}
           >
             <Settings2 size={19} strokeWidth={1.9} aria-hidden="true" />
-            <span>Настройки</span>
+            <span>{t('Настройки')}</span>
           </NavLink>
           <div className="sidebar-profile">
-            <div className="avatar avatar--blue" aria-hidden="true">МС</div>
+            <div className="avatar avatar--blue" aria-hidden="true">{initials}</div>
             <div className="sidebar-profile__copy">
-              <strong>Мария Смирнова</strong>
-              <span>Руководитель продаж</span>
+              <strong>{settings.profile.fullName}</strong>
+              <span>{settings.profile.jobTitle}</span>
             </div>
             <span className="sidebar-profile__status" aria-label="В сети" />
           </div>

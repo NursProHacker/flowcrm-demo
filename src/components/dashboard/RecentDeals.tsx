@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import type { DealStage } from '../../types/domain';
 import type { RecentDealItem } from '../../services/dashboard-service';
 import { formatCurrency } from '../../utils/currency';
+import { formatRegionDate } from '../../utils/region-format';
 
 interface RecentDealsProps {
   deals: RecentDealItem[];
@@ -17,7 +18,6 @@ const stageLabels: Record<DealStage, string> = {
   lost: 'Закрыта',
 };
 
-const dateFormat = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'short' });
 
 export function RecentDeals({ deals }: RecentDealsProps) {
   return (
@@ -39,7 +39,7 @@ export function RecentDeals({ deals }: RecentDealsProps) {
                   <td><div className="contact-cell"><strong>{contact?.fullName ?? 'Без контакта'}</strong><small>{contact?.company ?? '—'}</small></div></td>
                   <td className="amount-cell">{formatCurrency(deal.amount)}</td>
                   <td><span className={`stage-badge stage-badge--${deal.stageId}`}><i />{stageLabels[deal.stageId]}</span></td>
-                  <td className="date-cell">{dateFormat.format(new Date(deal.updatedAt))}</td>
+                  <td className="date-cell">{formatRegionDate(deal.updatedAt, { month: 'short', year: false })}</td>
                   <td><span className="table-avatar" title={employee?.fullName ?? 'Ответственный'}>{employee?.fullName.slice(0, 1) ?? '—'}</span></td>
                 </tr>
               ))}

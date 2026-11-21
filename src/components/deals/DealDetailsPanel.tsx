@@ -3,6 +3,7 @@ import { ArrowDownRight, ArrowUpRight, CalendarDays, CircleAlert, Clock3, Mail, 
 import type { Activity, Contact, Deal, DealStage, Employee } from '../../types/domain';
 import { dealPriorityLabels, dealStageOptions, formatDealAmount, formatExpectedCloseDate } from '../../utils/deal-format';
 import { ConfirmDialog } from '../ui/ConfirmDialog';
+import { formatRegionDate } from '../../utils/region-format';
 
 interface DealDetailsPanelProps {
   deal: Deal;
@@ -20,8 +21,8 @@ interface DealDetailsPanelProps {
   onDelete: () => Promise<void>;
 }
 
-const dateTimeFormat = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-const dateFormat = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+const dateTimeFormat = { format: (date: Date) => formatRegionDate(date, { month: 'short', time: true }) };
+const dateFormat = { format: (date: Date) => formatRegionDate(date, { month: 'long' }) };
 
 function ActivityIcon({ type }: { type: Activity['type'] }) {
   if (type === 'created') return <Plus size={14} aria-hidden="true" />;

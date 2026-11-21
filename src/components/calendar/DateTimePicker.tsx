@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { CalendarDays, ChevronLeft, ChevronRight, Clock3 } from 'lucide-react';
+import { formatRegionDate } from '../../utils/region-format';
 
 interface DateTimePickerProps {
   label: string;
@@ -7,8 +8,8 @@ interface DateTimePickerProps {
   onChange: (value: string) => void;
 }
 
-const monthFormatter = new Intl.DateTimeFormat('ru-RU', { month: 'long', year: 'numeric' });
-const displayFormatter = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+const monthFormatter = { format: (date: Date) => formatRegionDate(date, { day: false, month: 'long' }) };
+const displayFormatter = { format: (date: Date) => formatRegionDate(date, { month: 'long' }) };
 const pad = (value: number) => String(value).padStart(2, '0');
 const dateKey = (date: Date) => `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 const parseValue = (value: string) => {

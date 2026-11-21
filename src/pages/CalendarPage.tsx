@@ -6,6 +6,7 @@ import { DateTimePicker } from '../components/calendar/DateTimePicker';
 import { services } from '../services/repositories';
 import { createCalendarEvent, updateCalendarEvent, type CalendarEventInput } from '../services/calendar-service';
 import type { CalendarEvent, Contact, Deal, Employee, Task } from '../types/domain';
+import { formatRegionDate, formatRegionTime } from '../utils/region-format';
 
 type CalendarView = 'month' | 'week' | 'day';
 type EventType = NonNullable<CalendarEvent['type']>;
@@ -16,9 +17,9 @@ const typeLabel = (type?: EventType) => eventTypes.find((item) => item.value ===
 const dayKey = (date: Date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 const atDay = (date: Date, hour: number) => { const next = new Date(date); next.setHours(hour, 0, 0, 0); return next; };
 const localDateTimeValue = (value: string) => { const date = new Date(value); date.setMinutes(date.getMinutes() - date.getTimezoneOffset()); return date.toISOString().slice(0, 16); };
-const monthTitle = new Intl.DateTimeFormat('ru-RU', { month: 'long', year: 'numeric' });
-const fullDateTitle = new Intl.DateTimeFormat('ru-RU', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-const timeLabel = new Intl.DateTimeFormat('ru-RU', { hour: '2-digit', minute: '2-digit' });
+const monthTitle = { format: (date: Date) => formatRegionDate(date, { day: false, month: 'long' }) };
+const fullDateTitle = { format: (date: Date) => formatRegionDate(date, { weekday: 'long', month: 'long' }) };
+const timeLabel = { format: (date: Date) => formatRegionTime(date) };
 
 function addDays(date: Date, amount: number) { const next = new Date(date); next.setDate(next.getDate() + amount); return next; }
 function startOfWeek(date: Date) { const next = new Date(date); next.setHours(0, 0, 0, 0); next.setDate(next.getDate() - (next.getDay() + 6) % 7); return next; }

@@ -4,6 +4,7 @@ import { Outlet, useLocation } from 'react-router';
 import { useDashboardSnapshot } from '../../hooks/useDashboardSnapshot';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
+import { useAppSettings } from '../../contexts/useAppSettings';
 
 const pageTitles: Record<string, string> = {
   '/': 'Обзор',
@@ -17,6 +18,7 @@ const pageTitles: Record<string, string> = {
 
 export function AppLayout() {
   const location = useLocation();
+  const { t } = useAppSettings();
   const [openMenuPath, setOpenMenuPath] = useState<string | null>(null);
   const mobileMenuOpen = openMenuPath === location.pathname;
   const state = useDashboardSnapshot();
@@ -35,7 +37,7 @@ export function AppLayout() {
       <Sidebar mobileOpen={mobileMenuOpen} onClose={() => setOpenMenuPath(null)} />
       <div className="app-main">
         <Header
-          title={pageTitles[location.pathname] ?? 'FlowCRM'}
+          title={t(pageTitles[location.pathname] ?? 'FlowCRM')}
           mobileMenuOpen={mobileMenuOpen}
           onToggleMenu={() => setOpenMenuPath((path) => path === location.pathname ? null : location.pathname)}
           snapshot={snapshot}

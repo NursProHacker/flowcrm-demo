@@ -1,13 +1,13 @@
 import { AlarmClock, ArrowRight, Circle, CircleCheck } from 'lucide-react';
 import { Link } from 'react-router';
 import type { Task } from '../../types/domain';
+import { formatRegionTime, formatRegionDate } from '../../utils/region-format';
 
 interface UpcomingTasksProps {
   tasks: Task[];
   employees: Array<{ id: string; fullName: string }>;
 }
 
-const timeFormat = new Intl.DateTimeFormat('ru-RU', { hour: '2-digit', minute: '2-digit' });
 const priorityLabel = { urgent: 'Срочно', high: 'Высокий', medium: 'Обычный', low: 'Низкий' } as const;
 
 export function UpcomingTasks({ tasks, employees }: UpcomingTasksProps) {
@@ -33,7 +33,7 @@ export function UpcomingTasks({ tasks, employees }: UpcomingTasksProps) {
                 <div className="task-row__body"><strong>{task.title}</strong><span>{task.description}</span></div>
                 <div className="task-row__meta">
                   <span className={`priority priority--${task.priority}`}><i />{priorityLabel[task.priority]}</span>
-                  <small>{isToday ? 'Сегодня' : due.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' })}, {timeFormat.format(due)}</small>
+                  <small>{isToday ? 'Сегодня' : formatRegionDate(due, { month: 'short', year: false })}, {formatRegionTime(due)}</small>
                 </div>
                 {employee && <span className="task-row__assignee" title={employee.fullName}>{employee.fullName.slice(0, 1)}</span>}
               </li>

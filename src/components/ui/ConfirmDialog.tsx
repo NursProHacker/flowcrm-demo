@@ -3,12 +3,15 @@ import { Trash2 } from 'lucide-react';
 
 interface ConfirmDialogProps {
   name: string;
+  title?: string;
+  description?: string;
+  confirmLabel?: string;
   busy?: boolean;
   onCancel: () => void;
   onConfirm: () => void | Promise<void>;
 }
 
-export function ConfirmDialog({ name, busy = false, onCancel, onConfirm }: ConfirmDialogProps) {
+export function ConfirmDialog({ name, title = 'Подтвердите удаление', description, confirmLabel = 'Удалить', busy = false, onCancel, onConfirm }: ConfirmDialogProps) {
   const dialogRef = useRef<HTMLElement>(null);
   const cancelRef = useRef<HTMLButtonElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
@@ -41,11 +44,11 @@ export function ConfirmDialog({ name, busy = false, onCancel, onConfirm }: Confi
   return <div className="contacts-overlay contacts-overlay--confirm" onMouseDown={(event) => { if (event.target === event.currentTarget && !busy) onCancel(); }}>
     <section ref={dialogRef} className="contacts-confirm confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirm-dialog-title" aria-describedby="confirm-dialog-description" onKeyDown={handleKeyDown}>
       <span className="contacts-confirm__icon"><Trash2 size={20} aria-hidden="true" /></span>
-      <h2 id="confirm-dialog-title">Подтвердите удаление</h2>
-      <p id="confirm-dialog-description">Удалить «{name}»? Это действие нельзя будет отменить.</p>
+      <h2 id="confirm-dialog-title">{title}</h2>
+      <p id="confirm-dialog-description">{description ?? `Удалить «${name}»? Это действие нельзя будет отменить.`}</p>
       <div className="contacts-confirm__actions">
         <button ref={cancelRef} className="secondary-button" type="button" onClick={onCancel} disabled={busy}>Отмена</button>
-        <button className="danger-button" type="button" onClick={() => void onConfirm()} disabled={busy}>{busy ? 'Удаляем…' : 'Удалить'}</button>
+        <button className="danger-button" type="button" onClick={() => void onConfirm()} disabled={busy}>{busy ? 'Выполняется…' : confirmLabel}</button>
       </div>
     </section>
   </div>;

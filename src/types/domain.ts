@@ -92,6 +92,7 @@ export interface Employee {
   email: string;
   role: EmployeeRole;
   avatarUrl: string | null;
+  isActive?: boolean;
 }
 
 export interface Activity {
@@ -109,6 +110,12 @@ export interface Organization {
   name: string;
   businessType: string;
   currency: string;
+  description?: string;
+  phone?: string;
+  email?: string;
+  website?: string;
+  address?: string;
+  logoText?: string;
 }
 
 export interface EntityByType {

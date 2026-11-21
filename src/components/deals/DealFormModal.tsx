@@ -2,7 +2,8 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { X } from 'lucide-react';
 import type { Contact, Deal, DealPriority, DealStage, Employee } from '../../types/domain';
 import { dealPriorityLabels, dealStageOptions } from '../../utils/deal-format';
-import { DEFAULT_CURRENCY } from '../../utils/currency';
+import { DEFAULT_CURRENCY, getCurrencySymbol } from '../../utils/currency';
+import { useAppSettings } from '../../contexts/useAppSettings';
 
 export type DealFormValues = Omit<Deal, 'id' | 'createdAt' | 'updatedAt'>;
 
@@ -18,6 +19,7 @@ interface DealFormModalProps {
 type DealFormErrors = Partial<Record<'title' | 'contactId' | 'amount' | 'assignedEmployeeId', string>>;
 
 export function DealFormModal({ deal, contacts, employees, saving, onClose, onSave }: DealFormModalProps) {
+  const { settings } = useAppSettings();
   const [title, setTitle] = useState(deal?.title ?? '');
   const [contactId, setContactId] = useState(deal?.contactId ?? contacts[0]?.id ?? '');
   const [amount, setAmount] = useState(deal ? String(deal.amount) : '');
@@ -103,9 +105,9 @@ export function DealFormModal({ deal, contacts, employees, saving, onClose, onSa
               <small className="deal-field-hint">Компания связана с карточкой выбранного контакта.</small>
             </label>
             <label className="contact-field">
-              <span>Сумма, ₸ <i>*</i></span>
+              <span>Сумма, {getCurrencySymbol(settings.currency)} <i>*</i></span>
               <input type="number" min="1" step="1" value={amount} onChange={(event) => { setAmount(event.target.value); setErrors((current) => ({ ...current, amount: undefined })); }} aria-invalid={Boolean(errors.amount)} aria-describedby={errors.amount ? 'deal-amount-error' : undefined} placeholder="0" />
-              <small className="deal-field-hint">Сумма указывается в тенге (KZT).</small>
+              <small className="deal-field-hint">Сумма вводится числом, без символа валюты. Отображение: {settings.currency}.</small>
               {errors.amount && <small id="deal-amount-error" className="contact-field__error">{errors.amount}</small>}
             </label>
             <label className="contact-field">

@@ -1,5 +1,6 @@
 import type { DealPriority, DealStage } from '../types/domain';
 import { formatCurrency } from './currency';
+import { formatRegionDate } from './region-format';
 
 export const dealStageOptions: Array<{ value: DealStage; label: string }> = [
   { value: 'new', label: 'Новая' },
@@ -35,6 +36,5 @@ export function formatDealAmount(amount: number): string {
 
 export function formatExpectedCloseDate(value: string | null): string {
   if (!value) return 'Срок не указан';
-  const date = new Date(`${value}T12:00:00`);
-  return new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' }).format(date);
+  return formatRegionDate(value, { month: 'short' });
 }
